@@ -16,15 +16,16 @@ desc "Release version #{Workarea::ContentSearch::VERSION} of the gem"
 task :release do
   host = "https://#{ENV['BUNDLE_GEMS__WEBLINC__COM']}@gems.weblinc.com"
 
-  Rake::Task['workarea:changelog'].execute
-  system 'git add CHANGELOG.md'
-  system 'git commit -m "Update CHANGELOG"'
-  system 'git push origin HEAD'
+  #Rake::Task['workarea:changelog'].execute
+  #system 'git add CHANGELOG.md'
+  #system 'git commit -m "Update CHANGELOG"'
+  #system 'git push origin HEAD'
 
   system "git tag -a v#{Workarea::ContentSearch::VERSION} -m 'Tagging #{Workarea::ContentSearch::VERSION}'"
   system 'git push --tags'
 
   system 'gem build workarea-content_search.gemspec'
+  system "gem push workarea-content_search-#{Workarea::ContentSearch::VERSION}.gem"
   system "gem push workarea-content_search-#{Workarea::ContentSearch::VERSION}.gem --host #{host}"
   system "rm workarea-content_search-#{Workarea::ContentSearch::VERSION}.gem"
 end
