@@ -1,0 +1,24 @@
+module Workarea
+  decorate Search::StorefrontSearch::Response, with: :content_search do
+
+    decorated do
+      attr_accessor :content_query
+    end
+
+    def reset!(params, by: nil)
+      # maintain compatiblity with workarea < 3.4 and 3.4+
+      # TODO: Remove if/when support for < 3.4 is not necessary
+      by.present? ? super : super(params)
+
+      @content_query = Search::ContentSearch.new(params)
+    end
+
+    def content_total
+      content_query.total
+    end
+
+    def query_suggestions
+      super + content_query.query_suggestions
+    end
+  end
+end

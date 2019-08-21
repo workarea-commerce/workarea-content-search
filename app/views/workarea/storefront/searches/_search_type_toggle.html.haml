@@ -1,0 +1,8 @@
+- if @search.multiple_result_types?
+  .grid.grid--auto
+    .grid__cell
+      %span.search-results__type= pluralize(@search.total, t('workarea.storefront.searches.product_result'))
+
+    - if @search.content_total > 0
+      .grid__cell
+        %span.search-results__type= link_to pluralize(@search.content_total, t('workarea.storefront.searches.content_result')), content_search_path(q: @search.query_string, type: 'content')

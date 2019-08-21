@@ -1,0 +1,10 @@
+module Workarea
+  decorate Search::Storefront, with: :content_search do
+    class_methods do
+      def ensure_dynamic_mappings
+        super
+        Search::Storefront::Content.percolate_null_content
+      end
+    end
+  end
+end

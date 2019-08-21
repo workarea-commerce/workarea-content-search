@@ -1,0 +1,9 @@
+module Workarea
+  decorate Search::SearchSuggestions, with: :content_search do
+    def query
+      super.tap do |query|
+        query[:bool][:must_not] = { term: { type: 'content' } }
+      end
+    end
+  end
+end

@@ -1,0 +1,17 @@
+module Workarea
+  decorate Storefront::SearchesController, with: :content_search do
+    def content
+      response = Search::StorefrontSearch.new(params.to_unsafe_h).response
+      response.template = 'content'
+      handle_search_response(response)
+    end
+
+    def set_search(response)
+      if response.template == 'content'
+        @search = Storefront::ContentSearchViewModel.new(response, view_model_options)
+      else
+        super
+      end
+    end
+  end
+end
