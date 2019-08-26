@@ -27,7 +27,7 @@ module Workarea
         end
 
         def text
-          @text ||= ExtractContentBlockText.new(model.blocks).text
+          @text ||= model.meta_description || text_extracted_from_blocks
         end
 
         def suggestion_content
@@ -48,6 +48,12 @@ module Workarea
             !model.contentable.class.name.in?(
               Workarea.config.exclude_from_content_search_index
             )
+        end
+
+        private
+
+        def text_extracted_from_blocks
+          ExtractContentBlockText.new(model.blocks).text
         end
       end
     end

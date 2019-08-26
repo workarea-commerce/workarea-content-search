@@ -22,6 +22,26 @@ module Workarea
             assert(page_content_search_model.should_be_indexed?)
           end
         end
+
+        def test_use_meta_description_for_text_when_available
+          page = create_page
+          model = Workarea::Content.for(page).tap do |content|
+            content.blocks.create!(
+              type: :html,
+              data: {
+                'html' => '<p>lorem ipsum dolor sit amet</p>'
+              }
+            )
+          end
+          content = Content.new(model)
+
+          assert_equal('lorem ipsum dolor sit amet', content.text)
+
+          model.update!(meta_description: 'foo bar baz')
+          content = Content.new(model)
+
+          assert_equal('foo bar baz', content.text)
+        end
       end
     end
   end
