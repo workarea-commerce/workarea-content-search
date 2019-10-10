@@ -1,5 +1,7 @@
 module Workarea
-  if Search.const_defined?(:SearchSuggestions)
+  # Checking for SearchSuggestions this way ensures the constant
+  # loads, if possible, before deciding whether to decorate.
+  if !!(Search::SearchSuggestions rescue nil)
     decorate Search::SearchSuggestions, with: :content_search do
       def query
         super.tap do |query|
