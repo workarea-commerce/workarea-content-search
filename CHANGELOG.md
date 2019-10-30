@@ -1,4 +1,4 @@
-Workarea Content Search 1.0.8 (2019-10-30)
+Workarea Content Search 1.0.9 (2019-10-30)
 --------------------------------------------------------------------------------
 
 *   Update checking for SearchSuggestion content to ensure decoration loading
