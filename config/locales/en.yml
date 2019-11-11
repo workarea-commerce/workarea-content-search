@@ -5,3 +5,5 @@ en:
         product_result: product result
         content_result: content result
         content: Content
+      search_autocomplete:
+        content_heading: "Content Results: %{term}"

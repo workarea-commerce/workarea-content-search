@@ -1,0 +1,11 @@
+/**
+ * Extensions to the search autocomplete plugin to support content
+ * results.
+ */
+
+.search-autocomplete__content {
+    @extend %list-reset;
+    text-align: left;
+}
+    .search-autocomplete__content-item {}
+        .search-autocomplete__content-link {}
