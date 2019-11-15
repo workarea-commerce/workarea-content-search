@@ -16,4 +16,8 @@ Workarea.configure do |config|
     Workarea::Search::Customization
     Workarea::Navigation::Menu
   )
+
+  if Workarea::Plugin.installed?(:search_autocomplete)
+    config.storefront_search_autocomplete_max_content = 5
+  end
 end

@@ -1,0 +1,17 @@
+module Workarea
+  if Plugin.installed?(:search_autocomplete)
+    decorate Storefront::SearchAutocompleteViewModel, with: :content_search do
+      def content_results
+        @content_results ||= begin
+          return [] if searches.blank?
+
+          results = Storefront::ContentSearchViewModel.wrap(response, options)
+
+          results.content.take(
+            Workarea.config.storefront_search_autocomplete_max_content
+          )
+        end
+      end
+    end
+  end
+end
