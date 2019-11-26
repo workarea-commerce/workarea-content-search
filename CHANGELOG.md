@@ -1,3 +1,13 @@
+Workarea Content Search 1.0.9 (2019-10-30)
+--------------------------------------------------------------------------------
+
+*   Update checking for SearchSuggestion content to ensure decoration loading
+
+    CONTSEARCH-2
+    Matt Duffy
+
+
+
 Workarea Content Search 1.0.8 (2019-07-09)
 --------------------------------------------------------------------------------
 
