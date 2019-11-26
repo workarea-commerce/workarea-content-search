@@ -1,3 +1,32 @@
+Workarea Content Search 1.1.0 (2019-11-26)
+--------------------------------------------------------------------------------
+
+*   Add Autocomplete to Content Search
+
+    Using the shiny new **workarea-search-autocomplete** plugin, Content
+    Search can now provide autocomplete results for the given search term.
+    Content results are injected right below the common search terms, and
+    augments the existing autocomplete with results from pages, blog posts,
+    and other `Contentable` items.
+
+    CONTSEARCH-3
+    Tom Scott
+
+*   Enable changelog task in release task
+
+    Curt Howard
+
+*   Update checking for SearchSuggestion content to ensure decoration loading
+
+    CONTSEARCH-2
+    Matt Duffy
+
+*   Updates for v3.5
+
+    Ben Crouse
+
+
+
 Workarea Content Search 1.0.9 (2019-10-30)
 --------------------------------------------------------------------------------
 
