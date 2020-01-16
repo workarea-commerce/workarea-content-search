@@ -5,7 +5,9 @@
 
 .search-autocomplete__content {
     @extend %list-reset;
-    text-align: left;
+    text-align: right;
 }
+
     .search-autocomplete__content-item {}
+
         .search-autocomplete__content-link {}
