@@ -1,7 +1,8 @@
 - if @autocomplete.content_results.any?
-  %ul.search-autocomplete__content
+  .search-autocomplete__content
     %span.search-autocomplete__heading
       = t('workarea.storefront.search_autocomplete.content_heading', term: @autocomplete.searches.first)
-    - @autocomplete.content_results.each do |result|
-      %li.search-autocomplete__content-item
-        = link_to result.name, send("#{result.resource_name}_path", result), class: 'search-autocomplete__content-link'
+    %ul.search-autocomplete__content-list
+      - @autocomplete.content_results.each do |result|
+        %li.search-autocomplete__content-item
+          = link_to result.name, send("#{result.resource_name}_path", result), class: 'search-autocomplete__content-link'

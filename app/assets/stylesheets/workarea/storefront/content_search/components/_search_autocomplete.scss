@@ -4,10 +4,18 @@
  */
 
 .search-autocomplete__content {
-    @extend %list-reset;
-    text-align: right;
+    @include respond-to($small-breakpoint) {
+        text-align: center;
+    }
+
+    @include respond-to($medium-breakpoint) {
+        text-align: right;
+    }
 }
 
+    .search-autocomplete__content-list {
+        @extend %list-reset;
+    }
     .search-autocomplete__content-item {}
 
         .search-autocomplete__content-link {}
